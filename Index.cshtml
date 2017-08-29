@@ -1,0 +1,65 @@
+﻿<!--
+//===============================================================//
+// * Fonte na linguagem HTML5                                    //
+// * SISTEMA: Carregamentos                                      //
+// * AUTOR: Silvio Moreira                                       //
+// * OBJETIVO: Crude de Produtos-View                            // 
+// * PADRÕES: Gof) MVC, Arquitetural) Layers                     //
+//===============================================================//-->
+@model IEnumerable<SisCarregamentosWeb2.Models.Produto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DescProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Saida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoUnitario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoVenda)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescProduto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Saida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecoUnitario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecoVenda)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CodProduto }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CodProduto }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CodProduto })
+        </td>
+    </tr>
+}
+
+</table>
